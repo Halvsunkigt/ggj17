@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxThrowableController : ThrowableComponent 
+public class BoxThrowableController : ThrowableController 
 {
 	void OnCollisionEnter(Collision other)
 	{

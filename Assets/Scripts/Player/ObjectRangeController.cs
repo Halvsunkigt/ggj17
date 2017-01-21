@@ -52,7 +52,7 @@ public class ObjectRangeController : MonoBehaviour
 			return;
 		}
 
-		ThrowableComponent throwable = carryingObject.GetComponent<ThrowableComponent> ();
+		var throwable = carryingObject.GetComponent<ThrowableController> ();
 		if (throwable == null) {
 			Debug.LogError ("Object " + carryingObject.name + " is not allowed to be thrown. Dropping it instead");
 			StopCarryingObject ();
@@ -80,7 +80,7 @@ public class ObjectRangeController : MonoBehaviour
 			return;
 		}
 
-		ThrowableComponent throwable = collidingObject.GetComponent<ThrowableComponent> ();
+		var throwable = collidingObject.GetComponent<ThrowableController> ();
 		if (throwable != null) {
 			throwable.Disable ();
 		}
@@ -104,7 +104,7 @@ public class ObjectRangeController : MonoBehaviour
 			return;
 		}
 
-		ThrowableComponent throwable = carryingObject.GetComponent<ThrowableComponent> ();
+		var throwable = carryingObject.GetComponent<ThrowableController> ();
 		if (throwable != null) {
 			throwable.PutDown ();
 		}

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoThrowableController : ThrowableComponent 
+public class AmmoThrowableController : ThrowableController 
 {
 	void OnCollisionEnter(Collision other)
 	{
 		if (other.collider.tag == "Turret") {
-			FillAmmo ();
+			FillAmmo (other.gameObject);
 		} else if (other.collider.tag == "Ground") {
 			// Verify that we are not colliding with a turret
 			var pos = gameObject.transform.position;
@@ -15,7 +15,7 @@ public class AmmoThrowableController : ThrowableComponent
 			var hits = Physics.RaycastAll (ray);
 			for (var i = 0; i < hits.Length; ++i) {
 				if (hits [i].collider.tag == "Turret") {
-					FillAmmo ();
+					FillAmmo (other.gameObject);
 					return;
 				}
 			}
@@ -24,10 +24,20 @@ public class AmmoThrowableController : ThrowableComponent
 		}
 	}
 
-	void FillAmmo ()
+	/// <summary>
+	/// Fills the ammo.
+	/// </summary>
+	/// <param name="turretObject">Turret object.</param>
+	private void FillAmmo (GameObject turretObject)
 	{
-		//var turret = other.collider.gameObject
-		//turret.SetAmmo(100);
+		var controller = turretObject.GetComponent<TurretController> ();
+		if (controller == null) {
+			Debug.LogError ("GameObject " + turretObject.name + " is not a valid turret");
+			return;
+		} else {
+			Debug.Log ("Reloading " + turretObject.name);
+			controller.Reload ();
+		}
 		Destroy (gameObject);
 	}
 }

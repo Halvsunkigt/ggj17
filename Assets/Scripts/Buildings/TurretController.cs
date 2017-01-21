@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class TurretController : MonoBehaviour
 {
-	public GameObject bulletPrefab;
-	public int bulletShootCount = 1;
-	public float shootInterval = 2f;
-	public float range = 4f;
+	[SerializeField]
+	private GameObject bulletPrefab;
 
-	float nextShoot;
+	[SerializeField]
+	private int bulletShootCount = 1;
+
+	[SerializeField]
+	private float shootInterval = 2f;
+
+	[SerializeField]
+	private float range = 4f;
+
+	[SerializeField]
+	private int initialAmmo = 25;
+
+	private int ammo;
+	private float nextShoot;
+
 
 	// Use this for initialization
 	void Start ()
 	{
 		nextShoot = Time.timeSinceLevelLoad + shootInterval;
+		ammo = initialAmmo;
 	}
 	
 	// Update is called once per frame
@@ -23,16 +36,27 @@ public class TurretController : MonoBehaviour
 		TryToShoot ();
 	}
 
-	void TryToShoot ()
+	/// <summary>
+	/// Reload this turrets ammunition
+	/// </summary>
+	public void Reload()
+	{
+		ammo = initialAmmo;
+	}
+
+	private void TryToShoot ()
 	{
 		if (nextShoot > Time.timeSinceLevelLoad) {
 			return;
 		}
+		nextShoot = Time.timeSinceLevelLoad + shootInterval;
 
-		// Todo: Check ammo
+		if (IsOutOfAmmunition()) {
+			return;
+		}
+		ammo--;
 
 		EnemyController enemy = GetClosestEnemy ();
-
 		if (enemy == null) {
 			return;
 		}
@@ -45,10 +69,13 @@ public class TurretController : MonoBehaviour
 		Vector3 direction = enemy.transform.position - transform.position;
 		bullet.GetComponent<Rigidbody> ().AddForce (direction.normalized * bullet.GetComponent<BulletController> ().speed);
 
-		nextShoot = Time.timeSinceLevelLoad + shootInterval;
 	}
 
-	EnemyController GetClosestEnemy ()
+	private bool IsOutOfAmmunition() {
+		return ammo <= 0;
+	}
+
+	private EnemyController GetClosestEnemy ()
 	{
 		Collider[] colliders = Physics.OverlapSphere (transform.position, range);
 		EnemyController closest = null;

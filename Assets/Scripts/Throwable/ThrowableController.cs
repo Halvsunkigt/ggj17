@@ -3,22 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
-public class ThrowableComponent : MonoBehaviour
+public class ThrowableController : MonoBehaviour
 {
-	private Collider collider;
-
-	protected Collider Collider
-	{
-		get {
-			return collider;
-		}
-	}
-
-	void Start ()
-	{
-		collider = GetComponent<Collider> ();
-	}
-
 	public void Throw(Vector3 velocity)
 	{
 		Rigidbody rb = GetComponent<Rigidbody> ();
