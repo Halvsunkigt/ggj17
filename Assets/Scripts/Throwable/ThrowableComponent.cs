@@ -5,15 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class ThrowableComponent : MonoBehaviour
 {
-	private Rigidbody rb;
 	private Collider collider;
-
-	protected Rigidbody RigidBody
-	{
-		get {
-			return rb;
-		}
-	}
 
 	protected Collider Collider
 	{
@@ -24,12 +16,12 @@ public class ThrowableComponent : MonoBehaviour
 
 	void Start ()
 	{
-		rb = GetComponent<Rigidbody> ();
 		collider = GetComponent<Collider> ();
 	}
 
 	public void Throw(Vector3 velocity)
 	{
+		Rigidbody rb = GetComponent<Rigidbody> ();
 		rb.velocity = velocity;
 		rb.isKinematic = false;
 		enabled = true;
@@ -37,12 +29,14 @@ public class ThrowableComponent : MonoBehaviour
 
 	public void Disable()
 	{
+		Rigidbody rb = GetComponent<Rigidbody> ();
 		rb.isKinematic = true;
 		enabled = false;
 	}
 
 	public void PutDown()
 	{
+		Rigidbody rb = GetComponent<Rigidbody> ();
 		enabled = true;
 		rb.isKinematic = false;
 	}

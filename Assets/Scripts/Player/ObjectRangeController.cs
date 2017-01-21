@@ -8,9 +8,8 @@ public class ObjectRangeController : MonoBehaviour
 	private const string CARRY_BUTTON = "Fire1_Player";
 	private const string THROW_BUTTON = "Fire2_Player";
 
-	[SerializeField]
 	private string[] carryableObjects = new string[] {
-		"Box", "Player", "Turret"
+		"Box", "Player", "Turret", "VendingMachine"
 	};
 
 	private PlayerController player;
@@ -30,7 +29,7 @@ public class ObjectRangeController : MonoBehaviour
 	void FixedUpdate() 
 	{
 		if (Input.GetButtonDown (CARRY_BUTTON + player.PlayerIndex)) {
-			OnCarryButtonDown ();
+			OnActionButtonDown ();
 		} else if (Input.GetButtonDown (THROW_BUTTON + player.PlayerIndex)) {
 			OnThrowButtonDown ();
 		}
@@ -38,7 +37,7 @@ public class ObjectRangeController : MonoBehaviour
 		carryingTime += Time.fixedDeltaTime;
 	}
 
-	private void OnCarryButtonDown ()
+	private void OnActionButtonDown ()
 	{
 		if (IsCollidingWithObject () && !IsCarryingObject ()) { 
 			StartCarryingObject (collidingObject);
@@ -75,6 +74,12 @@ public class ObjectRangeController : MonoBehaviour
 	/// <param name="collidingObject">Colliding object.</param>
 	public void StartCarryingObject (GameObject collidingObject)
 	{
+		VendingMachineController vendingMachine = collidingObject.GetComponent<VendingMachineController> ();
+		if (vendingMachine != null) {
+			vendingMachine.TryBuyItem (this);
+			return;
+		}
+
 		ThrowableComponent throwable = collidingObject.GetComponent<ThrowableComponent> ();
 		if (throwable != null) {
 			throwable.Disable ();
