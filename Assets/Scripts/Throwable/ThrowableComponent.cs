@@ -10,7 +10,6 @@ public class ThrowableComponent : MonoBehaviour
 	void Start ()
 	{
 		rb = GetComponent<Rigidbody> ();
-		enabled = false;
 	}
 
 	public void OnEnable()
