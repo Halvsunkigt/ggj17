@@ -16,7 +16,7 @@ public class ObjectRangeController : MonoBehaviour
 
 	void Start () 
 	{
-		
+		player = GetComponent<PlayerController> ();
 	}
 
 	void FixedUpdate() 
