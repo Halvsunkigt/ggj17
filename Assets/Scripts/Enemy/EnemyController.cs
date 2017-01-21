@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MonsterController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
 	public float damageReduction = 1f;
 
