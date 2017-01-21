@@ -13,8 +13,7 @@ public class MonsterController : MonoBehaviour
 	{
 		targetCore = GameObject.FindObjectOfType<CoreController> ();
 		navAgent = GetComponent<NavMeshAgent> ();
-		navAgent.destination = targetCore.transform.position; 
-		navAgent.stoppingDistance = targetCore.transform.localScale.x;
+		navAgent.destination = targetCore.transform.position;
 	}
 	
 	// Update is called once per frame
