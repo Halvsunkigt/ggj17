@@ -2,13 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretController : MonoBehaviour
-{
-	public GameObject bulletPrefab;
-	public int bulletShootCount = 1;
-	public float shootTimer = 10f;
-	public float range = 4f;
-
+public class BulletController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
