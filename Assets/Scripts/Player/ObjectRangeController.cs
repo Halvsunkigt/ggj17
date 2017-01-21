@@ -43,8 +43,9 @@ public class ObjectRangeController : MonoBehaviour
 		this.collidingObject = null;
 
 		// Update parent node so that the carrying object is moved around with the player
+		Vector3 offset = gameObject.transform.up * (sphereCollider.radius / 2.0f);
 		carryingObject.transform.parent = gameObject.transform;
-		carryingObject.transform.position = gameObject.transform.position + gameObject.transform.forward * (sphereCollider.radius / 2.0f);
+		carryingObject.transform.position = gameObject.transform.position + offset;
 	}
 
 	void StopCarryingObject ()
@@ -53,6 +54,8 @@ public class ObjectRangeController : MonoBehaviour
 			return;
 		}
 
+		Vector3 offset = gameObject.transform.forward * (sphereCollider.radius / 2.0f);
+		carryingObject.transform.position = gameObject.transform.position + offset;
 		carryingObject.transform.parent = null;
 		carryingObject = null;
 
