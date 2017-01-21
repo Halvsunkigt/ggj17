@@ -5,16 +5,18 @@ using UnityEngine.AI;
 
 public class MonsterController : MonoBehaviour
 {
+	public float damageReduction = 1f;
+
 	CoreController targetCore;
 	NavMeshAgent navAgent;
+	float hp = 100f;
 
 	// Use this for initialization
 	void Start ()
 	{
 		targetCore = GameObject.FindObjectOfType<CoreController> ();
 		navAgent = GetComponent<NavMeshAgent> ();
-		navAgent.destination = targetCore.transform.position; 
-		navAgent.stoppingDistance = targetCore.transform.localScale.x;
+		navAgent.destination = targetCore.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -46,5 +48,18 @@ public class MonsterController : MonoBehaviour
 		}
 
 		return false;
+	}
+
+	public void TakeDamage (float damage)
+	{
+		hp -= damage / damageReduction;
+		if (hp <= 0f) {
+			HasBeenKilled ();
+		}
+	}
+
+	void HasBeenKilled ()
+	{
+		Destroy (gameObject);
 	}
 }
