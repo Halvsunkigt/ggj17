@@ -11,22 +11,52 @@ public class ObjectRangeController : MonoBehaviour
 	};
 
 	private PlayerController player;
+	private SphereCollider sphereCollider;
+
 	private GameObject carryingObject;
 	private GameObject collidingObject;
 
 	void Start () 
 	{
 		player = GetComponent<PlayerController> ();
+		sphereCollider = GetComponent<SphereCollider> ();
 	}
 
 	void FixedUpdate() 
 	{
-		if (!IsCollidingWithObject ()) {
+		if (Input.GetButtonDown("Fire1_Player" + player.PlayerIndex)) {
+			if (IsCollidingWithObject () && !IsCarryingObject ()) { 
+				StartCarryingObject (collidingObject);
+			} else if (IsCarryingObject ()) {
+				StopCarryingObject ();
+			}
+		}
+	}
+
+	/// <summary>
+	/// Start carrying object
+	/// </summary>
+	/// <param name="collidingObject">Colliding object.</param>
+	public void StartCarryingObject (GameObject collidingObject)
+	{
+		carryingObject = collidingObject;
+		this.collidingObject = null;
+
+		// Update parent node so that the carrying object is moved around with the player
+		carryingObject.transform.parent = gameObject.transform;
+		carryingObject.transform.position = gameObject.transform.position + gameObject.transform.forward * (sphereCollider.radius / 2.0f);
+	}
+
+	void StopCarryingObject ()
+	{
+		if (carryingObject == null) {
 			return;
 		}
 
-		if (Input.GetButtonDown("Fire1_Player" + player.playerIndex)) {
-		}
+		carryingObject.transform.parent = null;
+		carryingObject = null;
+
+		// TODO: Snap to grid!
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -38,6 +68,7 @@ public class ObjectRangeController : MonoBehaviour
 		for (var i = 0; i < carryableObjects.Length; ++i) {
 			if (carryableObjects [i].Equals (other.tag)) {
 				collidingObject = other.gameObject;
+				Debug.Log ("Colliding with object: " + other.gameObject.name);
 				break;
 			}
 		}
@@ -45,9 +76,11 @@ public class ObjectRangeController : MonoBehaviour
 
 	void OnTriggerExit(Collider other)
 	{
-		if (!IsCarryingObject (other.gameObject)) {
+		if (!IsCollidingWithObject (other.gameObject)) {
 			return;
 		}
+
+		collidingObject = null;
 	}
 
 	private bool IsCarryingObject() 
@@ -55,13 +88,20 @@ public class ObjectRangeController : MonoBehaviour
 		return carryingObject != null;
 	}
 
+	private bool IsCarryingObject(GameObject obj)
+	{
+		return obj.Equals (carryingObject);
+	}
+
 	private bool IsCollidingWithObject() 
 	{
 		return collidingObject != null;
 	}
 
-	private bool IsCarryingObject(GameObject obj)
+	private bool IsCollidingWithObject(GameObject obj) 
 	{
-		return obj.Equals (carryingObject);
+		return obj.Equals(collidingObject);
 	}
+
 }
+
