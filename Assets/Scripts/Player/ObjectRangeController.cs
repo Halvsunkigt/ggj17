@@ -46,6 +46,7 @@ public class ObjectRangeController : MonoBehaviour
 		Vector3 offset = gameObject.transform.up * (sphereCollider.radius / 2.0f);
 		carryingObject.transform.parent = gameObject.transform;
 		carryingObject.transform.position = gameObject.transform.position + offset;
+		carryingObject.transform.rotation = new Quaternion ();
 	}
 
 	void StopCarryingObject ()
