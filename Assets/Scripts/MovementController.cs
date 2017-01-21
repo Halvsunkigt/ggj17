@@ -46,7 +46,7 @@ public class MovementController : MonoBehaviour
 	{
 		// help the character turn faster (this is in addition to root rotation in the animation)
 		float turnSpeed = Mathf.Lerp (stationaryTurnSpeed, movingTurnSpeed, 1);
-		transform.Rotate (0, turnAmount * turnSpeed * Time.deltaTime, 0);
+		transform.Rotate (0, turnAmount * turnSpeed * Time.fixedDeltaTime, 0);
 	}
 
 	/// <summary>
