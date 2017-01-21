@@ -24,7 +24,7 @@ public class CoreController : MonoBehaviour
 		if (hp < 100f) {
 			if (destroyed) {
 				hp += Time.deltaTime * 2f;
-				if (rebuild >= 100f) {
+				if (hp >= 100f) {
 					HasBeenRebuilt ();
 				}
 			} else {
