@@ -13,7 +13,11 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private float throwPower = 5.0f;
 
+	[SerializeField]
+	private float initialMovementSpeed = 3.0f;
+
 	private int health;
+	private float movementSpeed;
 
 	/// <summary>
 	/// Retrieves the current players index
@@ -30,7 +34,7 @@ public class PlayerController : MonoBehaviour
 	/// <summary>
 	/// Retireves the current players health
 	/// </summary>
-	/// <value>The health.</value>
+	/// <value></value>
 	public int Health
 	{
 		get 
@@ -43,6 +47,10 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// The power used when throwing an object
+	/// </summary>
+	/// <value></value>
 	public float ThrowPower
 	{
 		get
@@ -51,8 +59,34 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// The initial movement speed
+	/// </summary>
+	/// <value></value>
+	public float InitialMovementSpeed
+	{
+		get {
+			return initialMovementSpeed;
+		}
+	}
+
+	/// <summary>
+	/// The current movement speed
+	/// </summary>
+	/// <value></value>
+	public float MovementSpeed
+	{
+		get {
+			return movementSpeed;
+		}
+		set {
+			movementSpeed = value;
+		}
+	}
+
 	void Start()
 	{
 		health = startHealth;
+		movementSpeed = initialMovementSpeed;
 	}
 }

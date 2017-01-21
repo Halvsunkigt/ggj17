@@ -66,6 +66,8 @@ public class ObjectRangeController : MonoBehaviour
 		carryingObject.transform.parent = null;
 		rb.velocity = throwArc * player.ThrowPower;
 		carryingObject = null;
+
+		player.MovementSpeed = player.InitialMovementSpeed;
 	}
 
 	/// <summary>
@@ -88,6 +90,8 @@ public class ObjectRangeController : MonoBehaviour
 		carryingObject.transform.position = gameObject.transform.position + offset;
 		carryingObject.transform.rotation = new Quaternion ();
 		carryingTime = 0;
+
+		player.MovementSpeed = player.InitialMovementSpeed / 2.0f;
 	}
 
 	private void StopCarryingObject ()
@@ -106,7 +110,7 @@ public class ObjectRangeController : MonoBehaviour
 		carryingObject.transform.parent = null;
 		carryingObject = null;
 
-		// TODO: Snap to grid!
+		player.MovementSpeed = player.InitialMovementSpeed;
 	}
 
 	void OnTriggerEnter(Collider other)
