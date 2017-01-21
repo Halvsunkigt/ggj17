@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private int startHealth = 100;
 
+	[SerializeField]
+	private float throwPower = 5.0f;
+
 	private int health;
 
 	/// <summary>
@@ -37,6 +40,14 @@ public class PlayerController : MonoBehaviour
 		set 
 		{
 			health = value;
+		}
+	}
+
+	public float ThrowPower
+	{
+		get
+		{
+			return throwPower;
 		}
 	}
 

@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider), typeof(PlayerController))]
 public class ObjectRangeController : MonoBehaviour 
 {
+	private const string CARRY_BUTTON = "Fire1_Player";
+	private const string THROW_BUTTON = "Fire2_Player";
+
 	[SerializeField]
 	private string[] carryableObjects = new string[] {
 		"Box", "Player", "Turret"
@@ -26,15 +29,43 @@ public class ObjectRangeController : MonoBehaviour
 
 	void FixedUpdate() 
 	{
-		if (Input.GetButtonDown("Fire1_Player" + player.PlayerIndex)) {
-			if (IsCollidingWithObject () && !IsCarryingObject ()) { 
-				StartCarryingObject (collidingObject);
-			} else if (IsCarryingObject ()) {
-				StopCarryingObject ();
-			}
+		if (Input.GetButtonDown (CARRY_BUTTON + player.PlayerIndex)) {
+			OnCarryButtonDown ();
+		} else if (Input.GetButtonDown (THROW_BUTTON + player.PlayerIndex)) {
+			OnThrowButtonDown ();
 		}
 
 		carryingTime += Time.fixedDeltaTime;
+	}
+
+	private void OnCarryButtonDown ()
+	{
+		if (IsCollidingWithObject () && !IsCarryingObject ()) { 
+			StartCarryingObject (collidingObject);
+		} else if (IsCarryingObject ()) {
+			StopCarryingObject ();
+		}
+	}
+
+	private void OnThrowButtonDown ()
+	{
+		if (!IsCarryingObject ()) {
+			return;
+		}
+
+		Rigidbody rb = carryingObject.GetComponent<Rigidbody> ();
+		if (rb == null) {
+			Debug.LogError ("Object " + carryingObject.name + " is not allowed to be thrown. Dropping it instead");
+			StopCarryingObject ();
+			return;
+		}
+
+		rb.constraints = RigidbodyConstraints.FreezeRotation;
+		Vector3 throwArc = (gameObject.transform.forward + gameObject.transform.up).normalized;
+
+		carryingObject.transform.parent = null;
+		rb.velocity = throwArc * player.ThrowPower;
+		carryingObject = null;
 	}
 
 	/// <summary>
@@ -43,6 +74,11 @@ public class ObjectRangeController : MonoBehaviour
 	/// <param name="collidingObject">Colliding object.</param>
 	public void StartCarryingObject (GameObject collidingObject)
 	{
+		Rigidbody rb = collidingObject.GetComponent<Rigidbody> ();
+		if (rb != null) {
+			rb.constraints = RigidbodyConstraints.FreezeAll;
+		}
+
 		carryingObject = collidingObject;
 		this.collidingObject = null;
 
@@ -54,10 +90,15 @@ public class ObjectRangeController : MonoBehaviour
 		carryingTime = 0;
 	}
 
-	void StopCarryingObject ()
+	private void StopCarryingObject ()
 	{
 		if (carryingObject == null && carryingTime > 0.5f) {
 			return;
+		}
+
+		Rigidbody rb = carryingObject.GetComponent<Rigidbody> ();
+		if (rb != null) {
+			rb.constraints = RigidbodyConstraints.FreezeAll;
 		}
 
 		Vector3 offset = gameObject.transform.forward * (sphereCollider.radius / 2.0f);
@@ -74,6 +115,11 @@ public class ObjectRangeController : MonoBehaviour
 			return;
 		}
 
+		CheckForCollision (other);
+	}
+
+	private void CheckForCollision(Collider other)
+	{
 		for (var i = 0; i < carryableObjects.Length; ++i) {
 			if (carryableObjects [i].Equals (other.tag)) {
 				collidingObject = other.gameObject;
@@ -90,6 +136,15 @@ public class ObjectRangeController : MonoBehaviour
 		}
 
 		collidingObject = null;
+	}
+
+	void OnTriggerStay(Collider other)
+	{
+		if (IsCarryingObject() || IsCollidingWithObject()) {
+			return;
+		}
+
+		CheckForCollision (other);
 	}
 
 	private bool IsCarryingObject() 
