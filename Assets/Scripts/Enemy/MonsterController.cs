@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class MonsterController : MonoBehaviour
 {
 	CoreController targetCore;
-	Transform targetTransform;
 	NavMeshAgent navAgent;
 
 	// Use this for initialization
@@ -15,13 +14,16 @@ public class MonsterController : MonoBehaviour
 		targetCore = GameObject.FindObjectOfType<CoreController> ();
 		navAgent = GetComponent<NavMeshAgent> ();
 		navAgent.destination = targetCore.transform.position; 
-		navAgent.stoppingDistance = targetTransform.localScale.x;
+		navAgent.stoppingDistance = targetCore.transform.localScale.x;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		Debug.Log (IsWalking ());
+		if (!IsWalking ()) {
+			targetCore.TakeDamage (10f * Time.deltaTime);
+			// Todo: attack in intervals with attack animation?
+		}
 
 		// Todo: if targetCore.isDestroyed then find new core
 	}
