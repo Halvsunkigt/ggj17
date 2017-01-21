@@ -44,4 +44,13 @@ public class GameState : MonoBehaviour
 		}
 		return bought;
 	}
+
+	/// <summary>
+	/// Give coins
+	/// </summary>
+	/// <param name="coins">Coins.</param>
+	public void GiveCoins(int coins) {
+		numCoins += coins;
+		Debug.Log ("Give coins: " + coins);
+	}
 }
