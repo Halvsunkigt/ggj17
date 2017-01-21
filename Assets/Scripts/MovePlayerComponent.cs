@@ -2,32 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerMotor))]
+[RequireComponent(typeof(MovementController))]
 public class MovePlayerComponent : MonoBehaviour 
 {
 	[SerializeField]
-	private float speed = 3.0f;
+	private int playerIndex = 0;
 
-	private PlayerMotor playerMotor;
+	private Vector3 rotate;
+	private MovementController movement;
 
-	// Use this for initialization
 	void Start () 
 	{
-		playerMotor = GetComponent<PlayerMotor> ();
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
+		movement = GetComponent<MovementController> ();
 	}
 
 	void FixedUpdate() 
 	{
-		var vertical = Input.GetAxisRaw ("Vertical");
-		var horizontal = Input.GetAxisRaw ("Horizontal");
+		var v = Input.GetAxisRaw ("Vertical_Player" + playerIndex);
+		var h = Input.GetAxisRaw ("Horizontal_Player" + playerIndex);
 
-		playerMotor.MoveForward (vertical * speed);
-		playerMotor.MoveRight (horizontal * speed);
+		// we use world-relative directions in the case of no main camera
+		rotate = v * Vector3.forward + h * Vector3.right;
+
+		movement.Rotate (rotate);
+		movement.Move (h, v);
 	}
 }
