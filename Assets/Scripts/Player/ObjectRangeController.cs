@@ -53,18 +53,17 @@ public class ObjectRangeController : MonoBehaviour
 			return;
 		}
 
-		Rigidbody rb = carryingObject.GetComponent<Rigidbody> ();
-		if (rb == null) {
+		ThrowableComponent throwable = carryingObject.GetComponent<ThrowableComponent> ();
+		if (throwable == null) {
 			Debug.LogError ("Object " + carryingObject.name + " is not allowed to be thrown. Dropping it instead");
 			StopCarryingObject ();
 			return;
 		}
 
-		rb.constraints = RigidbodyConstraints.FreezeRotation;
 		Vector3 throwArc = (gameObject.transform.forward + gameObject.transform.up).normalized;
+		throwable.Throw (throwArc * player.ThrowPower);
 
 		carryingObject.transform.parent = null;
-		rb.velocity = throwArc * player.ThrowPower;
 		carryingObject = null;
 
 		player.MovementSpeed = player.InitialMovementSpeed;
@@ -76,9 +75,9 @@ public class ObjectRangeController : MonoBehaviour
 	/// <param name="collidingObject">Colliding object.</param>
 	public void StartCarryingObject (GameObject collidingObject)
 	{
-		Rigidbody rb = collidingObject.GetComponent<Rigidbody> ();
-		if (rb != null) {
-			rb.constraints = RigidbodyConstraints.FreezeAll;
+		ThrowableComponent throwable = collidingObject.GetComponent<ThrowableComponent> ();
+		if (throwable != null) {
+			throwable.enabled = false;
 		}
 
 		carryingObject = collidingObject;
@@ -100,9 +99,9 @@ public class ObjectRangeController : MonoBehaviour
 			return;
 		}
 
-		Rigidbody rb = carryingObject.GetComponent<Rigidbody> ();
-		if (rb != null) {
-			rb.constraints = RigidbodyConstraints.FreezeAll;
+		ThrowableComponent throwable = carryingObject.GetComponent<ThrowableComponent> ();
+		if (throwable != null) {
+			throwable.enabled = false;
 		}
 
 		Vector3 offset = gameObject.transform.forward * (sphereCollider.radius / 2.0f);
