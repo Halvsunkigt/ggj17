@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class CoreController : MonoBehaviour
 {
+	public Transform hpTransform;
+
 	float hp = 100f;
 	bool destroyed = false;
-
-	// Use this for initialization
-	void Start ()
-	{
-		
-	}
 	
 	// Update is called once per frame
 	void Update ()
@@ -36,6 +32,9 @@ public class CoreController : MonoBehaviour
 	public void TakeDamage (float damage)
 	{
 		hp -= damage;
+
+		hpTransform.localScale = new Vector3 (hp / 100f, hpTransform.localScale.y, hpTransform.localScale.z);
+		hpTransform.localPosition = new Vector3 (-0.5f + (hp / 100f) / 2, hpTransform.localPosition.y, hpTransform.localPosition.z);
 
 		if (hp < 0f) {
 			HasBeenDestroyed ();
