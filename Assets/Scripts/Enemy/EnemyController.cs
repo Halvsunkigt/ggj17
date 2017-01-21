@@ -5,11 +5,15 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-	public float damageReduction = 1f;
+	[SerializeField]
+	private float damageReduction = 1f;
 
-	CoreController targetCore;
-	NavMeshAgent navAgent;
-	float hp = 100f;
+	[SerializeField]
+	private GameObject dropType;
+
+	private CoreController targetCore;
+	private NavMeshAgent navAgent;
+	private float hp = 100f;
 
 	// Use this for initialization
 	void Start ()
@@ -60,6 +64,7 @@ public class EnemyController : MonoBehaviour
 
 	void HasBeenKilled ()
 	{
+		GameObject.Instantiate (dropType, transform.position, transform.rotation);
 		Destroy (gameObject);
 	}
 }
