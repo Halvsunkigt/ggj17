@@ -16,6 +16,8 @@ public class ObjectRangeController : MonoBehaviour
 	private GameObject carryingObject;
 	private GameObject collidingObject;
 
+	private float carryingTime = 0;
+
 	void Start () 
 	{
 		player = GetComponent<PlayerController> ();
@@ -31,6 +33,8 @@ public class ObjectRangeController : MonoBehaviour
 				StopCarryingObject ();
 			}
 		}
+
+		carryingTime += Time.fixedDeltaTime;
 	}
 
 	/// <summary>
@@ -47,11 +51,12 @@ public class ObjectRangeController : MonoBehaviour
 		carryingObject.transform.parent = gameObject.transform;
 		carryingObject.transform.position = gameObject.transform.position + offset;
 		carryingObject.transform.rotation = new Quaternion ();
+		carryingTime = 0;
 	}
 
 	void StopCarryingObject ()
 	{
-		if (carryingObject == null) {
+		if (carryingObject == null && carryingTime > 0.5f) {
 			return;
 		}
 
