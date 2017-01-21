@@ -77,7 +77,7 @@ public class ObjectRangeController : MonoBehaviour
 	{
 		ThrowableComponent throwable = collidingObject.GetComponent<ThrowableComponent> ();
 		if (throwable != null) {
-			throwable.enabled = false;
+			throwable.Disable ();
 		}
 
 		carryingObject = collidingObject;
@@ -101,7 +101,7 @@ public class ObjectRangeController : MonoBehaviour
 
 		ThrowableComponent throwable = carryingObject.GetComponent<ThrowableComponent> ();
 		if (throwable != null) {
-			throwable.enabled = false;
+			throwable.PutDown ();
 		}
 
 		Vector3 offset = gameObject.transform.forward * (sphereCollider.radius / 2.0f);

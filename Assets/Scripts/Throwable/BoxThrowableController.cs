@@ -7,7 +7,8 @@ public class BoxThrowableController : ThrowableComponent
 	void OnCollisionEnter(Collision other)
 	{
 		if (other.collider.tag == "Ground") {
-			enabled = false;
+			Disable ();
 		}
 	}
 }
+	
