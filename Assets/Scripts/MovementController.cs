@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody), typeof(PlayerController))]
 public class MovementController : MonoBehaviour 
 {
-	[SerializeField]
-	private float movementSpeed = 3.0f;
-
 	[SerializeField] 
 	private float stationaryTurnSpeed = 360;
 
 	[SerializeField] 
 	private float movingTurnSpeed = 360 * 2;
 
+	private PlayerController player;
 	private Rigidbody rb;
 
 	private float turnAmount = 0;
@@ -22,13 +20,14 @@ public class MovementController : MonoBehaviour
 
 	void Start () 
 	{
+		player = GetComponent<PlayerController> ();
 		rb = GetComponent<Rigidbody> ();
 		rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 	}
 
 	void FixedUpdate () 
 	{
-		rb.velocity = new Vector3 (horizontal * movementSpeed, rb.velocity.y, vertical * movementSpeed);
+		rb.velocity = new Vector3 (horizontal * player.MovementSpeed, rb.velocity.y, vertical * player.MovementSpeed);
 	}
 
 	public void Rotate(Vector3 rotate)
