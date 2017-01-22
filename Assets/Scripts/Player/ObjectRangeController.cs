@@ -64,7 +64,7 @@ public class ObjectRangeController : MonoBehaviour
 		EnemyController controller = enemy.GetComponent<EnemyController> ();
 		if (controller != null) {
 			controller.TakeDamage (player.AttackDamage);
-			enemy.transform.position = enemy.transform.position + transform.forward * 0.5f;
+			enemy.transform.position = enemy.transform.position + transform.forward * 1f;
 		}
 	}
 
