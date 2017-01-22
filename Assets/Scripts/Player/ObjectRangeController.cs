@@ -37,6 +37,10 @@ public class ObjectRangeController : MonoBehaviour
 
 	private void OnActionButtonDown ()
 	{
+		if (player.ControlsLocked) {
+			return;
+		}
+
 		if (IsCarryingObject ()) {
 			StopCarryingObject ();
 		} else {
