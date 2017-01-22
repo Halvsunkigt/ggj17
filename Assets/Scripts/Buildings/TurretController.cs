@@ -70,6 +70,10 @@ public class TurretController : MonoBehaviour
 	public void Reload()
 	{
 		ammo = initialAmmo;
+		var indicator = transform.GetComponentInChildren<IndicatorEnableController> ();
+		if (indicator != null) {
+			indicator.Hide ();
+		}
 	}
 
 	/// <summary>
@@ -83,6 +87,12 @@ public class TurretController : MonoBehaviour
 		}
 
 		ammo--;
+		if (ammo == 0) {
+			var indicator = transform.GetComponentInChildren<IndicatorEnableController> ();
+			if (indicator != null) {
+				indicator.Show ();
+			}
+		}
 
 		var attackObject = Instantiate (bulletPrefab);
 		var attack = attackObject.GetComponent<ProjectileAttack> ();

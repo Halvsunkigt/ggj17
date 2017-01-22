@@ -16,12 +16,6 @@ public class CoinController : MonoBehaviour
 		
 	}
 
-	// U
-	// Update is called once per frame
-	void Update () {
-		transform.Rotate (new Vector3(0, 90.0f * Time.deltaTime, 0));
-	}
-
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
 			var gameState = GameObject.Find ("GameState").GetComponent<GameState> ();
