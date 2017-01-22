@@ -17,9 +17,13 @@ public class ObjectRangeController : MonoBehaviour
 	[SerializeField]
 	private Transform carryNode;
 
+	[SerializeField]
+	private AudioClip punchSound;
+
 	private PlayerController player;
 	private SphereCollider sphereCollider;
 	private PlayerAnimation anim;
+	private AudioSource audioSource;
 
 	private GameObject carryingObject;
 
@@ -30,6 +34,7 @@ public class ObjectRangeController : MonoBehaviour
 		player = GetComponent<PlayerController> ();
 		sphereCollider = GetComponent<SphereCollider> ();
 		anim = GetComponent<PlayerAnimation> ();
+		audioSource = GetComponent<AudioSource> ();
 	}
 
 	void FixedUpdate() 
@@ -58,6 +63,7 @@ public class ObjectRangeController : MonoBehaviour
 				bool isAttackable = (closestObjectMask & attackMask) != 0;
 				if (isAttackable) {
 					anim.Punch ();
+					audioSource.PlayOneShot (punchSound);
 					Attack (closestObject);
 				} else {
 					StartCarryingObject (closestObject);
