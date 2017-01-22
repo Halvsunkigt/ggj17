@@ -8,15 +8,13 @@ public class ObjectRangeController : MonoBehaviour
 	private const string CARRY_BUTTON = "Fire1_Player";
 	private const string THROW_BUTTON = "Fire2_Player";
 
-	private string[] carryableObjects = new string[] {
-		"Box", "Player", "Turret", "VendingMachine"
-	};
+	[SerializeField]
+	private LayerMask carryLayerMask;
 
 	private PlayerController player;
 	private SphereCollider sphereCollider;
 
 	private GameObject carryingObject;
-	private GameObject collidingObject;
 
 	private float carryingTime = 0;
 
@@ -39,11 +37,43 @@ public class ObjectRangeController : MonoBehaviour
 
 	private void OnActionButtonDown ()
 	{
-		if (IsCollidingWithObject () && !IsCarryingObject ()) { 
-			StartCarryingObject (collidingObject);
-		} else if (IsCarryingObject ()) {
+		if (IsCarryingObject ()) {
 			StopCarryingObject ();
+		} else {
+			var closestObject = GetClosestInteractable ();
+			if (closestObject != null) {
+				StartCarryingObject (closestObject);
+			}
 		}
+	}
+
+	private GameObject GetClosestInteractable ()
+	{
+		float distance = float.MaxValue;
+		GameObject closestInteractable = null;
+
+		var colliders = Physics.OverlapSphere (transform.position, sphereCollider.radius, carryLayerMask);
+		foreach (var collider in colliders) {
+			var collidedObject = collider.gameObject;
+			if (collidedObject.Equals (gameObject)) {
+				continue;
+			}
+
+			// Ignore objects that's already being carried
+			ThrowableController throwable = collidedObject.GetComponent<ThrowableController> ();
+			if (throwable != null && throwable.IsCarried) {
+				continue;
+			}
+
+			var enemyPos = collider.transform.position;
+			var sqrdist = Vector3.SqrMagnitude (enemyPos - transform.position);
+			if (distance > sqrdist) {
+				closestInteractable = collider.gameObject;
+				distance = sqrdist;
+			}
+		}
+
+		return closestInteractable;
 	}
 
 	private void OnThrowButtonDown ()
@@ -72,21 +102,20 @@ public class ObjectRangeController : MonoBehaviour
 	/// Start carrying object
 	/// </summary>
 	/// <param name="collidingObject">Colliding object.</param>
-	public void StartCarryingObject (GameObject collidingObject)
+	public void StartCarryingObject (GameObject obj)
 	{
-		VendingMachineController vendingMachine = collidingObject.GetComponent<VendingMachineController> ();
+		VendingMachineController vendingMachine = obj.GetComponent<VendingMachineController> ();
 		if (vendingMachine != null) {
 			vendingMachine.TryBuyItem (this);
 			return;
 		}
 
-		var throwable = collidingObject.GetComponent<ThrowableController> ();
+		var throwable = obj.GetComponent<ThrowableController> ();
 		if (throwable != null) {
-			throwable.Disable ();
+			throwable.LiftUp ();
 		}
 
-		carryingObject = collidingObject;
-		this.collidingObject = null;
+		carryingObject = obj;
 
 		// Update parent node so that the carrying object is moved around with the player
 		Vector3 offset = gameObject.transform.up * (sphereCollider.radius / 2.0f);
@@ -117,44 +146,6 @@ public class ObjectRangeController : MonoBehaviour
 		player.MovementSpeed = player.InitialMovementSpeed;
 	}
 
-	void OnTriggerEnter(Collider other)
-	{
-		if (IsCarryingObject()) {
-			return;
-		}
-
-		CheckForCollision (other);
-	}
-
-	private void CheckForCollision(Collider other)
-	{
-		for (var i = 0; i < carryableObjects.Length; ++i) {
-			if (carryableObjects [i].Equals (other.tag)) {
-				collidingObject = other.gameObject;
-				Debug.Log ("Colliding with object: " + other.gameObject.name);
-				break;
-			}
-		}
-	}
-
-	void OnTriggerExit(Collider other)
-	{
-		if (!IsCollidingWithObject (other.gameObject)) {
-			return;
-		}
-
-		collidingObject = null;
-	}
-
-	void OnTriggerStay(Collider other)
-	{
-		if (IsCarryingObject() || IsCollidingWithObject()) {
-			return;
-		}
-
-		CheckForCollision (other);
-	}
-
 	private bool IsCarryingObject() 
 	{
 		return carryingObject != null;
@@ -164,16 +155,5 @@ public class ObjectRangeController : MonoBehaviour
 	{
 		return obj.Equals (carryingObject);
 	}
-
-	private bool IsCollidingWithObject() 
-	{
-		return collidingObject != null;
-	}
-
-	private bool IsCollidingWithObject(GameObject obj) 
-	{
-		return obj.Equals(collidingObject);
-	}
-
 }
 

@@ -17,6 +17,10 @@ public class MovePlayerComponent : MonoBehaviour
 
 	void FixedUpdate() 
 	{
+		if (player.ControlsLocked) {
+			return;
+		}
+
 		var v = Input.GetAxisRaw ("Vertical_Player" + player.PlayerIndex);
 		var h = Input.GetAxisRaw ("Horizontal_Player" + player.PlayerIndex);
 
