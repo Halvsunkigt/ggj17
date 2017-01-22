@@ -10,6 +10,7 @@ public class SpawnController : MonoBehaviour
 
 	int wave = -1;
 	float nextWave = 0f;
+	int spawnPointItterator = 0;
 
 	float[][] waves = new float[][]{
 		new float[]{1.8f, 0.5f, 0.2f, 0.0f}, // 4 16
@@ -65,6 +66,6 @@ public class SpawnController : MonoBehaviour
 
 	Transform GetNextSpawnPoint ()
 	{
-		return spawnPoints [0];
+		return spawnPoints [spawnPointItterator++ % spawnPoints.Length];
 	}
 }
