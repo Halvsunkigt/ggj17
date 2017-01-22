@@ -63,6 +63,12 @@ public class ObjectRangeController : MonoBehaviour
 				continue;
 			}
 
+			// Ignore objects that's already being carried
+			ThrowableController throwable = collidedObject.GetComponent<ThrowableController> ();
+			if (throwable != null && throwable.IsCarried) {
+				continue;
+			}
+
 			var enemyPos = collider.transform.position;
 			var sqrdist = Vector3.SqrMagnitude (enemyPos - transform.position);
 			if (distance > sqrdist) {

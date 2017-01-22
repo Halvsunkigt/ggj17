@@ -20,7 +20,7 @@ public class AmmoThrowableController : ThrowableController
 				}
 			}
 
-			LiftUp ();
+			Disable ();
 		}
 	}
 
