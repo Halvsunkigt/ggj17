@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody), typeof(PlayerController))]
+[RequireComponent(typeof(Rigidbody), typeof(PlayerController), typeof(PlayerAnimation))]
 public class MovementController : MonoBehaviour 
 {
 	[SerializeField] 
@@ -13,6 +13,7 @@ public class MovementController : MonoBehaviour
 
 	private PlayerController player;
 	private Rigidbody rb;
+	private PlayerAnimation anim;
 
 	private float turnAmount = 0;
 	private float vertical = 0;
@@ -21,6 +22,7 @@ public class MovementController : MonoBehaviour
 	void Start () 
 	{
 		player = GetComponent<PlayerController> ();
+		anim = GetComponent<PlayerAnimation> ();
 		rb = GetComponent<Rigidbody> ();
 		rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 	}
@@ -33,6 +35,7 @@ public class MovementController : MonoBehaviour
 
 		Vector3 velocity = (new Vector3 (horizontal, 0, vertical)).normalized * player.MovementSpeed;
 		rb.velocity = new Vector3 (velocity.x, rb.velocity.y, velocity.z);
+		anim.SetSpeed (rb.velocity.magnitude);
 	}
 
 	public void Rotate(Vector3 rotate)

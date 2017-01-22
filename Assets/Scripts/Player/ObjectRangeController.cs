@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider), typeof(PlayerController))]
+[RequireComponent(typeof(SphereCollider), typeof(PlayerController), typeof(PlayerAnimation))]
 public class ObjectRangeController : MonoBehaviour 
 {
 	private const string CARRY_BUTTON = "Fire1_Player";
@@ -14,8 +14,12 @@ public class ObjectRangeController : MonoBehaviour
 	[SerializeField]
 	private LayerMask attackMask;
 
+	[SerializeField]
+	private Transform carryNode;
+
 	private PlayerController player;
 	private SphereCollider sphereCollider;
+	private PlayerAnimation anim;
 
 	private GameObject carryingObject;
 
@@ -25,6 +29,7 @@ public class ObjectRangeController : MonoBehaviour
 	{
 		player = GetComponent<PlayerController> ();
 		sphereCollider = GetComponent<SphereCollider> ();
+		anim = GetComponent<PlayerAnimation> ();
 	}
 
 	void FixedUpdate() 
@@ -40,6 +45,7 @@ public class ObjectRangeController : MonoBehaviour
 
 	private void OnActionButtonDown ()
 	{
+		anim.Punch ();
 		if (player.ControlsLocked) {
 			return;
 		}
@@ -116,6 +122,8 @@ public class ObjectRangeController : MonoBehaviour
 			return;
 		}
 
+		anim.Throw ();
+
 		Vector3 throwArc = (gameObject.transform.forward + gameObject.transform.up).normalized;
 		throwable.Throw (throwArc * player.ThrowPower);
 
@@ -146,7 +154,7 @@ public class ObjectRangeController : MonoBehaviour
 
 		// Update parent node so that the carrying object is moved around with the player
 		Vector3 offset = gameObject.transform.up * (sphereCollider.radius / 2.0f);
-		carryingObject.transform.parent = gameObject.transform;
+		carryingObject.transform.parent = carryNode;
 		carryingObject.transform.position = gameObject.transform.position + offset;
 		carryingObject.transform.rotation = new Quaternion ();
 		carryingTime = 0;

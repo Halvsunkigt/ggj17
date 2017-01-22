@@ -1,0 +1,467 @@
+fileFormatVersion: 2
+guid: 081a26ea765a4481ab268e938bef4f20
+timeCreated: 1485082427
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Button
+    100004: Button_end
+    100006: Glove
+    100008: Glove_end
+    100010: Left Horn 001
+    100012: Left Horn 002
+    100014: Left Horn 003
+    100016: Left Horn 004
+    100018: Left Horn 004_end
+    100020: Main
+    100022: //RootNode
+    100024: Player01_Box.001
+    100026: Right Horn 001
+    100028: Right Horn 002
+    100030: Right Horn 003
+    100032: Right Horn 004
+    100034: Right Horn 004_end
+    100036: Stick
+    400000: Armature
+    400002: Button
+    400004: Button_end
+    400006: Glove
+    400008: Glove_end
+    400010: Left Horn 001
+    400012: Left Horn 002
+    400014: Left Horn 003
+    400016: Left Horn 004
+    400018: Left Horn 004_end
+    400020: Main
+    400022: //RootNode
+    400024: Player01_Box.001
+    400026: Right Horn 001
+    400028: Right Horn 002
+    400030: Right Horn 003
+    400032: Right Horn 004
+    400034: Right Horn 004_end
+    400036: Stick
+    4300000: Player01_Box.001
+    7400000: Idle
+    7400002: Run
+    7400004: Punch
+    7400006: Throw
+    7400008: Armature|ArmatureAction
+    7400010: Death
+    9500000: //RootNode
+    13700000: Player01_Box.001
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Armature|ArmatureAction
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Button/Button_end
+        weight: 1
+      - path: Armature/Main/Left Horn 001
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003/Left Horn 004
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003/Left Horn 004/Left
+          Horn 004_end
+        weight: 1
+      - path: Armature/Main/Right Horn 001
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003/Right Horn
+          004
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003/Right Horn
+          004/Right Horn 004_end
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Armature/Main/Stick/Glove/Glove_end
+        weight: 1
+      - path: Player01_Box.001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run
+      takeName: Armature|ArmatureAction
+      firstFrame: 29
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Button/Button_end
+        weight: 1
+      - path: Armature/Main/Left Horn 001
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003/Left Horn 004
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003/Left Horn 004/Left
+          Horn 004_end
+        weight: 1
+      - path: Armature/Main/Right Horn 001
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003/Right Horn
+          004
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003/Right Horn
+          004/Right Horn 004_end
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Armature/Main/Stick/Glove/Glove_end
+        weight: 1
+      - path: Player01_Box.001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Punch
+      takeName: Armature|ArmatureAction
+      firstFrame: 49
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Button/Button_end
+        weight: 1
+      - path: Armature/Main/Left Horn 001
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003/Left Horn 004
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003/Left Horn 004/Left
+          Horn 004_end
+        weight: 1
+      - path: Armature/Main/Right Horn 001
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003/Right Horn
+          004
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003/Right Horn
+          004/Right Horn 004_end
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Armature/Main/Stick/Glove/Glove_end
+        weight: 1
+      - path: Player01_Box.001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Throw
+      takeName: Armature|ArmatureAction
+      firstFrame: 122
+      lastFrame: 123
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Button/Button_end
+        weight: 1
+      - path: Armature/Main/Left Horn 001
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003/Left Horn 004
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003/Left Horn 004/Left
+          Horn 004_end
+        weight: 1
+      - path: Armature/Main/Right Horn 001
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003/Right Horn
+          004
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003/Right Horn
+          004/Right Horn 004_end
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Armature/Main/Stick/Glove/Glove_end
+        weight: 1
+      - path: Player01_Box.001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Death
+      takeName: Armature|ArmatureAction
+      firstFrame: 129
+      lastFrame: 154
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Button/Button_end
+        weight: 1
+      - path: Armature/Main/Left Horn 001
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003/Left Horn 004
+        weight: 1
+      - path: Armature/Main/Left Horn 001/Left Horn 002/Left Horn 003/Left Horn 004/Left
+          Horn 004_end
+        weight: 1
+      - path: Armature/Main/Right Horn 001
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003/Right Horn
+          004
+        weight: 1
+      - path: Armature/Main/Right Horn 001/Right Horn 002/Right Horn 003/Right Horn
+          004/Right Horn 004_end
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Armature/Main/Stick/Glove/Glove_end
+        weight: 1
+      - path: Player01_Box.001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
