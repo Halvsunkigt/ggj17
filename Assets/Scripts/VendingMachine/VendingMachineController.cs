@@ -10,12 +10,17 @@ public class VendingMachineController : MonoBehaviour
 	[SerializeField]
 	private GameObject prefab;
 
+	[SerializeField]
+	private AudioClip buySound;
+
 	private GameState gameState;
+	private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
 		var state = GameObject.Find ("GameState");
 		gameState = state.GetComponent<GameState> ();
+		audioSource = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +37,7 @@ public class VendingMachineController : MonoBehaviour
 	{
 		if (gameState.SpendCoins (cost)) {
 			var obj = Instantiate (prefab);
+			audioSource.PlayOneShot (buySound);
 			player.StartCarryingObject (obj);
 			return;
 		}
