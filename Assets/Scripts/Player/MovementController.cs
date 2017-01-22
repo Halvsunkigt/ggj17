@@ -31,7 +31,8 @@ public class MovementController : MonoBehaviour
 			return;
 		}
 
-		rb.velocity = new Vector3 (horizontal * player.MovementSpeed, rb.velocity.y, vertical * player.MovementSpeed);
+		Vector3 velocity = (new Vector3 (horizontal, 0, vertical)).normalized * player.MovementSpeed;
+		rb.velocity = new Vector3 (velocity.x, rb.velocity.y, velocity.z);
 	}
 
 	public void Rotate(Vector3 rotate)
