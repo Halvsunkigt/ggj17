@@ -9,6 +9,6 @@ public abstract class ProjectileAttack : MonoBehaviour
 	/// </summary>
 	/// <param name="from">From.</param>
 	/// <param name="target">Target.</param>
-	public abstract void AttackTarget(Vector3 from, GameObject target);
+	public abstract void AttackTarget(GameObject from, GameObject target);
 
 }
