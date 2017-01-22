@@ -153,9 +153,9 @@ public class ObjectRangeController : MonoBehaviour
 		carryingObject = obj;
 
 		// Update parent node so that the carrying object is moved around with the player
-		Vector3 offset = gameObject.transform.up * (sphereCollider.radius / 2.0f);
+		//Vector3 offset = gameObject.transform.up * (sphereCollider.radius / 2.0f);
 		carryingObject.transform.parent = carryNode;
-		carryingObject.transform.position = gameObject.transform.position + offset;
+		carryingObject.transform.position = carryNode.position;//gameObject.transform.position + offset;
 		carryingObject.transform.rotation = new Quaternion ();
 		carryingTime = 0;
 
