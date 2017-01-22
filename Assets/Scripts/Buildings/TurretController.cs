@@ -25,9 +25,6 @@ public class TurretController : MonoBehaviour
 	private int ammo;
 	private float timeUntilNextShot;
 
-	private TurretAnimation anim;
-
-
 	// Use this for initialization
 	void Start ()
 	{
@@ -87,8 +84,6 @@ public class TurretController : MonoBehaviour
 		if (IsOutOfAmmunition()) {
 			return;
 		}
-
-		anim.SetShooting (true);
 
 		ammo--;
 		if (ammo == 0) {
