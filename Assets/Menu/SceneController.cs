@@ -37,7 +37,7 @@ public class SceneController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1") && levelToLoad != "")
+        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1_Player0") && levelToLoad != "")
         {
             if (levelToLoad == "Quit")
             {
