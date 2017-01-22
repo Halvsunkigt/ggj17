@@ -13,17 +13,27 @@ public class ThrowableController : MonoBehaviour
 		enabled = true;
 	}
 
-	public void Disable()
+	public void LiftUp()
 	{
 		Rigidbody rb = GetComponent<Rigidbody> ();
 		rb.isKinematic = true;
 		enabled = false;
+		OnLiftUp ();
 	}
 
 	public void PutDown()
 	{
 		Rigidbody rb = GetComponent<Rigidbody> ();
-		enabled = true;
 		rb.isKinematic = false;
+		enabled = true;
+		OnPutDown ();
+	}
+
+	protected virtual void OnLiftUp()
+	{
+	}
+
+	protected virtual void OnPutDown()
+	{
 	}
 }

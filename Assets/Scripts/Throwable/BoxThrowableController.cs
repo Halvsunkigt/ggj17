@@ -7,7 +7,7 @@ public class BoxThrowableController : ThrowableController
 	void OnCollisionEnter(Collision other)
 	{
 		if (other.collider.tag == "Ground") {
-			Disable ();
+			LiftUp ();
 		}
 	}
 }

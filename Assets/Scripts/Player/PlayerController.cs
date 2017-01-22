@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
 	private int health;
 	private float movementSpeed;
+	private bool controlsLocked = false;
 
 	/// <summary>
 	/// Retrieves the current players index
@@ -81,6 +82,19 @@ public class PlayerController : MonoBehaviour
 		}
 		set {
 			movementSpeed = value;
+		}
+	}
+
+	/// <summary>
+	/// Retrieves a value that indicates if this player has it's controls locked
+	/// </summary>
+	public bool ControlsLocked
+	{
+		get {
+			return controlsLocked;
+		} 
+		set {
+			controlsLocked = value;
 		}
 	}
 

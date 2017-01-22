@@ -27,6 +27,10 @@ public class MovementController : MonoBehaviour
 
 	void FixedUpdate () 
 	{
+		if (player.ControlsLocked) {
+			return;
+		}
+
 		rb.velocity = new Vector3 (horizontal * player.MovementSpeed, rb.velocity.y, vertical * player.MovementSpeed);
 	}
 
