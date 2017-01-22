@@ -16,8 +16,12 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private float initialMovementSpeed = 3.0f;
 
+	[SerializeField]
+	private float initialAttackDamage = 5.0f;
+
 	private int health;
 	private float movementSpeed;
+	private float attackDamage;
 	private bool controlsLocked = false;
 
 	/// <summary>
@@ -98,9 +102,35 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Retrieves how much damage this player does
+	/// </summary>
+	/// <value>The attack damage.</value>
+	public float AttackDamage
+	{
+		get {
+			return attackDamage;
+		}
+		set {
+			attackDamage = value;
+		}
+	}
+
+	/// <summary>
+	/// Retrieves the initial attack damage
+	/// </summary>
+	/// <value>The initial attack damage.</value>
+	public float InitialAttackDamage
+	{
+		get {
+			return initialAttackDamage;
+		}
+	}
+
 	void Start()
 	{
 		health = startHealth;
 		movementSpeed = initialMovementSpeed;
+		attackDamage = initialAttackDamage;
 	}
 }

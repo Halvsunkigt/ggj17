@@ -11,6 +11,9 @@ public class ObjectRangeController : MonoBehaviour
 	[SerializeField]
 	private LayerMask carryLayerMask;
 
+	[SerializeField]
+	private LayerMask attackMask;
+
 	private PlayerController player;
 	private SphereCollider sphereCollider;
 
@@ -46,8 +49,22 @@ public class ObjectRangeController : MonoBehaviour
 		} else {
 			var closestObject = GetClosestInteractable ();
 			if (closestObject != null) {
-				StartCarryingObject (closestObject);
+				LayerMask closestObjectMask = 1 << closestObject.layer;
+				bool isAttackable = (closestObjectMask & attackMask) != 0;
+				if (isAttackable) {
+					Attack (closestObject);
+				} else {
+					StartCarryingObject (closestObject);
+				}
 			}
+		}
+	}
+
+	private void Attack(GameObject enemy) {
+		EnemyController controller = enemy.GetComponent<EnemyController> ();
+		if (controller != null) {
+			controller.TakeDamage (player.AttackDamage);
+			enemy.transform.position = enemy.transform.position + transform.forward * 0.5f;
 		}
 	}
 
@@ -56,7 +73,7 @@ public class ObjectRangeController : MonoBehaviour
 		float distance = float.MaxValue;
 		GameObject closestInteractable = null;
 
-		var colliders = Physics.OverlapSphere (transform.position, sphereCollider.radius, carryLayerMask);
+		var colliders = Physics.OverlapSphere (transform.position, sphereCollider.radius, carryLayerMask | attackMask);
 		foreach (var collider in colliders) {
 			var collidedObject = collider.gameObject;
 			if (collidedObject.Equals (gameObject)) {
@@ -69,11 +86,17 @@ public class ObjectRangeController : MonoBehaviour
 				continue;
 			}
 
-			var enemyPos = collider.transform.position;
-			var sqrdist = Vector3.SqrMagnitude (enemyPos - transform.position);
-			if (distance > sqrdist) {
+			var targetPos = collider.transform.position;
+			var targetDir = targetPos - transform.position;
+			float length = Vector3.Distance (targetPos, transform.position);
+			targetDir = targetDir / length;
+			if (Vector3.Dot (transform.forward, targetDir) <= 0.6) {
+				continue;
+			}
+
+			if (distance > length) {
 				closestInteractable = collider.gameObject;
-				distance = sqrdist;
+				distance = length;
 			}
 		}
 
