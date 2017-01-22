@@ -18,7 +18,7 @@ public class MenuController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetAxisRaw("Horizontal") == 1 && ready)
+        if ((Input.GetAxisRaw("Horizontal_Player1") == 1 || Input.GetAxisRaw("Vertical_Player1") == 1) && ready)
         {
             //move menu right
             index++;
@@ -34,7 +34,7 @@ public class MenuController : MonoBehaviour {
             }
         }
 
-        if (Input.GetAxisRaw("Horizontal") == -1 && ready)
+        if ((Input.GetAxisRaw("Horizontal_Player1") == -1 || Input.GetAxisRaw("Vertical_Player1") == -1 ) && ready)
         {
             //move menu right
             index--;
@@ -51,7 +51,7 @@ public class MenuController : MonoBehaviour {
             }
         }
 
-        if ( Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.1f)
+        if ( Mathf.Abs(Input.GetAxisRaw("Horizontal_Player1") + Input.GetAxisRaw("Vertical_Player1")) < 0.1f)
         {
             ready = true;
         }
