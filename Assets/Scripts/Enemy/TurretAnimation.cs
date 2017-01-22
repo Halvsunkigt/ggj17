@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretAnimation : StateMachineBehaviour {
+public class TurretAnimation : MonoBehaviour {
 
 	[SerializeField]
 	private Animator animator;
@@ -16,15 +16,12 @@ public class TurretAnimation : StateMachineBehaviour {
 		latestCallback = callback;
 	}
 
-	override public void OnStateEnter (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+	public void DoCallback ()
 	{
-		if (stateInfo.IsName ("Idle"))
+		Debug.Log ("Woop");
+		if (latestCallback != null)
 		{
-			Debug.Log ("Woop");
-			if (latestCallback != null)
-			{
-				latestCallback ();
-			}
+			latestCallback ();
 		}
 	}
 }
