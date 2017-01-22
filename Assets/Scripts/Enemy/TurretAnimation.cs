@@ -7,7 +7,8 @@ public class TurretAnimation : MonoBehaviour {
 	[SerializeField]
 	private Animator animator;
 
-	public void SetShooting (bool shooting)
+	public delegate void Callback();
+	public void SetShooting (bool shooting, Callback callback)
 	{
 		animator.SetBool ("Shooting", shooting);
 	}
