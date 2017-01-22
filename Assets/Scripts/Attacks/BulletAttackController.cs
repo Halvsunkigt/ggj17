@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : ProjectileAttack
+public class BulletAttackController : ProjectileAttack
 {
 	public float speed;
 	public float damage;
