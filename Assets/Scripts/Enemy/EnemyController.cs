@@ -22,9 +22,11 @@ public class EnemyController : MonoBehaviour
 	[SerializeField]
 	private GameObject attackEffect;
 
-	private CoreController targetCore;
+    [SerializeField]
+    private float hp = 100f;
+
+    private CoreController targetCore;
 	private NavMeshAgent navAgent;
-	private float hp = 100f;
 	private float attackSpeed;
 	private float attackDamage;
 	private float nextAttackTime;
