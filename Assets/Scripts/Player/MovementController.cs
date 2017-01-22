@@ -27,7 +27,7 @@ public class MovementController : MonoBehaviour
 		rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 	}
 
-	void FixedUpdate () 
+	void Update () 
 	{
 		if (player.ControlsLocked) {
 			return;

@@ -28,14 +28,14 @@ public class SpawnController : MonoBehaviour
 
 	void Start ()
 	{
-		nextWave = Time.timeSinceLevelLoad + 5f;
+		nextWave = Time.timeSinceLevelLoad + 15f;
 	}
 
 	void Update ()
 	{
 		if (Time.timeSinceLevelLoad >= nextWave) {
 			wave++;
-			nextWave += 5f;
+			nextWave += 15f;
 
 			StartWave ();
 		}

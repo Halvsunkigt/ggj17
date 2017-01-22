@@ -164,7 +164,7 @@ public class ObjectRangeController : MonoBehaviour
 
 	private void StopCarryingObject ()
 	{
-		if (carryingObject == null && carryingTime > 0.5f) {
+		if (carryingObject == null || carryingTime < 0.5f) {
 			return;
 		}
 
