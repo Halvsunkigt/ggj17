@@ -45,7 +45,6 @@ public class ObjectRangeController : MonoBehaviour
 
 	private void OnActionButtonDown ()
 	{
-		anim.Punch ();
 		if (player.ControlsLocked) {
 			return;
 		}
@@ -58,6 +57,7 @@ public class ObjectRangeController : MonoBehaviour
 				LayerMask closestObjectMask = 1 << closestObject.layer;
 				bool isAttackable = (closestObjectMask & attackMask) != 0;
 				if (isAttackable) {
+					anim.Punch ();
 					Attack (closestObject);
 				} else {
 					StartCarryingObject (closestObject);
