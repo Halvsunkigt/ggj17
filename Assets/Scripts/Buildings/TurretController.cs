@@ -84,12 +84,9 @@ public class TurretController : MonoBehaviour
 
 		ammo--;
 
-		GameObject bullet = Instantiate (bulletPrefab);
-		bullet.transform.position = transform.position;
-		bullet.transform.LookAt (target.transform);
-
-		Vector3 direction = target.transform.position - transform.position;
-		bullet.GetComponent<Rigidbody> ().AddForce (direction.normalized * bullet.GetComponent<BulletController> ().speed);
+		var attackObject = Instantiate (bulletPrefab);
+		var attack = attackObject.GetComponent<ProjectileAttack> ();
+		attack.AttackTarget (transform.position, target);
 	}
 
 	/// <summary>
