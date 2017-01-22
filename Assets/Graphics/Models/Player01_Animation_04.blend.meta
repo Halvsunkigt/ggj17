@@ -1,0 +1,639 @@
+fileFormatVersion: 2
+guid: 0ba644f7ccb1b408e9cbf2fa96b3ed31
+timeCreated: 1485076434
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Button
+    100004: Glove
+    100006: Left_Horn_001
+    100008: Left_Horn_002
+    100010: Left_Horn_003
+    100012: Left_Horn_004
+    100014: Main
+    100016: //RootNode
+    100018: Player01_Box_001
+    100020: Right_Horn_001
+    100022: Right_Horn_002
+    100024: Right_Horn_003
+    100026: Right_Horn_004
+    100028: Stick
+    400000: Armature
+    400002: Button
+    400004: Glove
+    400006: Left_Horn_001
+    400008: Left_Horn_002
+    400010: Left_Horn_003
+    400012: Left_Horn_004
+    400014: Main
+    400016: //RootNode
+    400018: Player01_Box_001
+    400020: Right_Horn_001
+    400022: Right_Horn_002
+    400024: Right_Horn_003
+    400026: Right_Horn_004
+    400028: Stick
+    4300000: Player01_Box_001
+    7400000: Default Take
+    7400002: ArmatureAction
+    7400004: Idle
+    7400006: Walk
+    7400008: Attack
+    7400010: PickUp
+    7400012: WalkPickUp
+    7400014: Throw
+    7400016: Die
+    9500000: //RootNode
+    13700000: Player01_Box_001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 48
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Left_Horn_001
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003/Left_Horn_004
+        weight: 1
+      - path: Armature/Main/Right_Horn_001
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003/Right_Horn_004
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Player01_Box_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ArmatureAction
+      takeName: ArmatureAction
+      firstFrame: 0
+      lastFrame: 164
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Left_Horn_001
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003/Left_Horn_004
+        weight: 1
+      - path: Armature/Main/Right_Horn_001
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003/Right_Horn_004
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Player01_Box_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: ArmatureAction
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Left_Horn_001
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003/Left_Horn_004
+        weight: 1
+      - path: Armature/Main/Right_Horn_001
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003/Right_Horn_004
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Player01_Box_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: ArmatureAction
+      firstFrame: 30
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Left_Horn_001
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003/Left_Horn_004
+        weight: 1
+      - path: Armature/Main/Right_Horn_001
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003/Right_Horn_004
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Player01_Box_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack
+      takeName: ArmatureAction
+      firstFrame: 50
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Left_Horn_001
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003/Left_Horn_004
+        weight: 1
+      - path: Armature/Main/Right_Horn_001
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003/Right_Horn_004
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Player01_Box_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PickUp
+      takeName: ArmatureAction
+      firstFrame: 60
+      lastFrame: 69
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Left_Horn_001
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003/Left_Horn_004
+        weight: 1
+      - path: Armature/Main/Right_Horn_001
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003/Right_Horn_004
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Player01_Box_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: WalkPickUp
+      takeName: ArmatureAction
+      firstFrame: 70
+      lastFrame: 89
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Left_Horn_001
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003/Left_Horn_004
+        weight: 1
+      - path: Armature/Main/Right_Horn_001
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003/Right_Horn_004
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Player01_Box_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Throw
+      takeName: ArmatureAction
+      firstFrame: 90
+      lastFrame: 129
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Left_Horn_001
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003/Left_Horn_004
+        weight: 1
+      - path: Armature/Main/Right_Horn_001
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003/Right_Horn_004
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Player01_Box_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Die
+      takeName: ArmatureAction
+      firstFrame: 130
+      lastFrame: 164
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Main
+        weight: 1
+      - path: Armature/Main/Button
+        weight: 1
+      - path: Armature/Main/Left_Horn_001
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003
+        weight: 1
+      - path: Armature/Main/Left_Horn_001/Left_Horn_002/Left_Horn_003/Left_Horn_004
+        weight: 1
+      - path: Armature/Main/Right_Horn_001
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003
+        weight: 1
+      - path: Armature/Main/Right_Horn_001/Right_Horn_002/Right_Horn_003/Right_Horn_004
+        weight: 1
+      - path: Armature/Main/Stick
+        weight: 1
+      - path: Armature/Main/Stick/Glove
+        weight: 1
+      - path: Player01_Box_001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
