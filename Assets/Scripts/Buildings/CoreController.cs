@@ -43,7 +43,7 @@ public class CoreController : MonoBehaviour
 
 	public void TakeDamage (float damage)
 	{
-		hp -= damage;
+		this.hp -= damage;
 		UpdateHealthBar (hp);
 
 		if (hp < 0f) {
@@ -57,7 +57,7 @@ public class CoreController : MonoBehaviour
 
 	public void GiveHealth(float health) 
 	{
-		hp = Mathf.Max (hp + health, 100.0f);
+		this.hp = Mathf.Clamp (this.hp + health, 0.0f, 100.0f);
 		UpdateHealthBar (hp);
 		if (repairEffect != null) {
 			GameObject.Instantiate (repairEffect, gameObject.transform.position, UP);
