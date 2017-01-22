@@ -15,15 +15,13 @@ public class TurretAnimation : MonoBehaviour {
 		animator.SetBool ("Shooting", shooting);
 		latestCallback = callback;
 	}
-	/*
-	override public void OnStateEnter (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+
+	public void DoCallback ()
 	{
-		if (stateInfo.IsName ("Idle"))
+		Debug.Log ("Woop");
+		if (latestCallback != null)
 		{
-			if (latestCallback != null)
-			{
-				latestCallback ();
-			}
+			latestCallback ();
 		}
-	}*/
+	}
 }
