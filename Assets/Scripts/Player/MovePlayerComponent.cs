@@ -24,10 +24,18 @@ public class MovePlayerComponent : MonoBehaviour
 		var v = Input.GetAxisRaw ("Vertical_Player" + player.PlayerIndex);
 		var h = Input.GetAxisRaw ("Horizontal_Player" + player.PlayerIndex);
 
-		// we use world-relative directions in the case of no main camera
-		rotate = v * Vector3.forward + h * Vector3.right;
+        var vector = new Vector2(v, h);
+        Debug.Log(vector.magnitude);
+        if (vector.magnitude < 0.35f)
+        {
+            v = 0;
+            h = 0;
+        }
 
-		movement.Rotate (rotate);
-		movement.Move (h, v);
+		    // we use world-relative directions in the case of no main camera
+		    rotate = v * Vector3.forward + h * Vector3.right;
+
+		    movement.Rotate (rotate);
+		    movement.Move (h, v);
 	}
 }

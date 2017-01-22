@@ -17,7 +17,8 @@ public class BulletAttackController : ProjectileAttack
 		Destroy (gameObject);
 	}
 
-	public override void AttackTarget(Vector3 from, GameObject target) {
+	public override void AttackTarget(GameObject fromObject, GameObject target) {
+		Vector3 from = fromObject.transform.position;
 		transform.position = from;
 		transform.LookAt (target.transform);
 

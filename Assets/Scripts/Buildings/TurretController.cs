@@ -96,7 +96,21 @@ public class TurretController : MonoBehaviour
 
 		var attackObject = Instantiate (bulletPrefab);
 		var attack = attackObject.GetComponent<ProjectileAttack> ();
-		attack.AttackTarget (transform.position, target);
+		var attackFrom = GetAttackFromObject (gameObject);
+		attack.AttackTarget (attackFrom, target);
+	}
+
+	/// <summary>
+	/// Try to find a point to attack from
+	/// </summary>
+	/// <returns>The attack from object.</returns>
+	/// <param name="root">Root.</param>
+	private GameObject GetAttackFromObject(GameObject root) {
+		var from = root.transform.FindChild ("AttackFrom");
+		if (from == null) {
+			return root;
+		}
+		return from.gameObject;
 	}
 
 	/// <summary>
