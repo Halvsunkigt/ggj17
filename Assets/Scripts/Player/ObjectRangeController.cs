@@ -26,10 +26,6 @@ public class ObjectRangeController : MonoBehaviour
 
 	void FixedUpdate() 
 	{
-		if (player.ControlsLocked) {
-			return;
-		}
-
 		if (Input.GetButtonDown (CARRY_BUTTON + player.PlayerIndex)) {
 			OnActionButtonDown ();
 		} else if (Input.GetButtonDown (THROW_BUTTON + player.PlayerIndex)) {
