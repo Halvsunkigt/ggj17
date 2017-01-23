@@ -56,7 +56,7 @@ public class MenuController : MonoBehaviour {
             ready = true;
         }
 
-        knob.transform.eulerAngles = new Vector3(-120 + index * 20, 90, -90);
+        knob.transform.eulerAngles = new Vector3(-120 + index * 20, 90, 180);
 	}
 
     void DisableMenu()
